@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GalaxyCTF 2017</title>
+	<link href="https://ctf.galaxians.org/hacker.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">GalaxyCTF 2017</a>
+			</div>
+		</div>
+	</nav>
+
+<style>
+
+/* http://codepen.io/keithclark/pen/zqcEd */
+/* Stars
+------------------------------------- */
+
+.stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 1s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 2s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 3s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+#htg {
+  color: #011;
+  font-size: 9vw;
+  text-align: center;
+  text-shadow: 0px 0 0.3em white;
+  color: white;
+  margin-bottom: 0.5em;
+	  max-width: 100%;
+}
+
+
+body {
+	background: black;
+	overflow-x: hidden;
+}
+</style>
+	<div id="main">
+			<!-- Jumbotron -->
+				<h1 id="htg">H4ck_th3_G4laxy</h1>
+		<div class="container">
+			<div class="jumbotron" style="background: none">
+				<p>
+					A long time ago, in a Galaxy far, far away&#8230; <a href="https://github.com/shiltemann">@shiltemann</a>
+					and <a href="https://github.com/erasche">@erasche</a> were playing
+					a traditional CTF event: hacking into systems, exploiting bugs, and
+					learning about security. They had the crazy idea: «What
+					about a Galaxy CTF?»
+				</p>
+				<p>
+					This is a competition (with no physical prizes) where you attempt to hack
+					into a Galaxy instance and learn more about vulnerabilities, Galaxy
+					Administration, and good security in the process.
+				</p>
+				<p>
+					<a style="width: 100%" class="btn btn-lg btn-primary" href="https://scoreboard.ctf.galaxians.org" role="button">Get Hacking!</a>
+				</p>
+			</div>
+		</div>
+		<div id="space">
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+		</div>
+		<div class="container" id="text">
+			<div class="row tall-row">
+				<div class="col-lg-12">
+					<h1>About</h1>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h2>When?</h2>
+					<p>
+						The CTF competition will start a week before GCC 2017, and
+						run until the last night of GCC.
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Who Can Compete</h2>
+					<p>
+						Anyone! We <i>strongly</i> recommend that you form teams
+						involving at least one bioinformatician or biologist, and
+						one computer person. <u>Get out there, make new friends!</u>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Rules of Engagement</h2>
+					<ol>
+						<li>
+							<b>Please do not compete during presentations</b>. There is
+							plenty of time before the conference and during evenings in
+							which to work on problems. We ask that you be respectful of
+							the presenters.
+						</li>
+						<li>
+							Only hack the Galaxy instance you have been given
+							access to. Please do not exploit our infrastructure and
+							ruin things for everyone.
+						</li>
+					<ol>
+				</div>
+			</div>
+
+			<div class="row tall-row">
+				<div class="col-lg-12">
+					<h1>Scoreboard</h1>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="progress">
+						<div class="progress-bar" style="width: 15%"></div>
+					</div>
+					<div id="scoreboard">
+					</div>
+					<script type="text/javascript">
+
+					// Progress Bar
+					var endDate = Date.parse("2017-07-01");
+					var startDate = Date.parse("2016-06-16");
+					var now = Date.now();
+					if(now <= startDate){
+						// Contest has not started yet.
+						$("div.progress").html("<h3>The competition will start soon... (2017-07-16)</h3>")
+						$("div.progress").removeClass("progress");
+					} else if (now >= endDate){
+						// Contest is over.
+						$("div.progress").html("<h3>The competition is over! Thanks everyone for taking part</h3>")
+						$("div.progress").removeClass("progress");
+						// Show scoreboard
+						$('#scoreboard').load('https://scoreboard.ctf.galaxians.org/scoreboard #scoreboard');
+					} else {
+						// Calculate process here
+						var progress = 100 * (now - startDate) / (endDate - startDate);
+						$("div.progress-bar").css("width", progress + "%");
+						// Show scoreboard
+						$('#scoreboard').load('https://scoreboard.ctf.galaxians.org/scoreboard #scoreboard');
+					}
+					</script>
+				</div>
+			</div>
+
+			<!--
+					<div class="panel panel-primary">
+						<div class="panel-heading"><h3 class="panel-title">Panel primary</h3></div>
+						<div class="panel-body">Panel content</div>
+					</div>
+					<div class="list-group">
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+						</a>
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+						</a>
+					</div>
+	-->
+			<div class="row tall-row">
+				<hr />
+				<div class="col-md-12">
+					<p>
+					Designed and Built by <a href="https://github.com/shiltemann">@shiltemann</a> and <a href="https://github.com/erasche">@erasche</a>.
+					</p><p>
+					<a href="https://github.com/isislab/CTFd">CTF Scoreboard</a> licensed under Apache-2.0.
+					<a href="https://github.com/galaxyproject/galaxy/">Galaxy</a> is available under the AFL.
+					<a href="https://github.com/Brobin/hacker-bootstrap">Hacker bootstrap</a> theme available under MIT.
+					The GalaxyCTF 2017 docker image is based on bgruening/docker-galaxy-stable.
+					Once the competition is over, the image source will be published.
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<script src="hack.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
