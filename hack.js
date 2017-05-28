@@ -1,8 +1,13 @@
-var initStr = "H4ck_th3_G4laxy".split('');
-var curStr = "H4ck_th3_G4laxy".split('');
+var initStr = "H4ck_th3_Univ3r5e".split('');
+var curStr = "Hack_the_Universe".split('');
 var variants = {
 	'_': [],
 	'G': ['6', 'g'],
+	'U': ['u'],
+	'n': ['&eta;'],
+	'i': ['i', '&iuml;', 'I', '&Iacute;', '&Iuml;'],
+	'v': ['v', '&radic;'],
+	'r': ['Я', 'я', '&reg;'],
 	'H': ['h'],
 	'a': ['4', 'A', '&alpha;'],
 	'c': ['c', 'C'],
